@@ -22,7 +22,9 @@ if len(sys.argv) > 1:
 else:
     program = 'poly.py'
 
-files = [f for f in os.listdir(path) if isfile(join(path, f)) and f.startswith('in')]
+files = [f for f in os.listdir(path) if isfile(
+    join(path, f)) and f.startswith('in')]
+
 
 def file_lines(file):
     lines = []
@@ -33,6 +35,7 @@ def file_lines(file):
                 lines.append(line)
     return lines
 
+
 for file in sorted(files):
     file_in = join(path, file)
     num = int(file[2:-4])
@@ -42,7 +45,8 @@ for file in sorted(files):
         os.remove(file_out)
     except FileNotFoundError:
         pass
-    p = subprocess.Popen([sys.executable, program], stdin=open(file_in, 'r'), stdout=open(file_out,'w'), stderr=subprocess.PIPE)
+    p = subprocess.Popen([sys.executable, program], stdin=open(
+        file_in, 'r'), stdout=open(file_out, 'w'), stderr=subprocess.PIPE)
     start_time = time.time()
 
     while p.poll() is None:
@@ -52,7 +56,8 @@ for file in sorted(files):
     if file_lines(file_ans) == file_lines(file_out):
         grade += 80.0 / len(files)
     elif os.isatty(1):
-        print('Data %d: expected %s, but got %s' % (num, repr(file_lines(file_ans)), repr(file_lines(file_out))))
+        print('Data %d: expected %s, but got %s' %
+              (num, repr(file_lines(file_ans)), repr(file_lines(file_out))))
         stdout, stderr = p.communicate(timeout=1)
         if len(stderr) > 0:
             print('       : your program exited with:')
