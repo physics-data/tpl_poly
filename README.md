@@ -27,7 +27,7 @@
 最终分数构成为：
 
 * 黑盒 80 分：共 5 个测例，每个 16 分
-* 白盒 20 分：参照[白盒标准](https://physics-data.meow.plus/faq/tutorials/whitebox/)
+* 白盒 20 分：参照[白盒标准](https://physics-data.meow.plus/faq/whitebox/)
 
 从本作业开始，**助教将对代码进行查重**。同学在实现过程中，如果参考了网上的代码，或者和其他同学交流，请把相关的网址、同学姓名和交流内容写到 `HONOR-CODE.md` 文件中并提交。
 
